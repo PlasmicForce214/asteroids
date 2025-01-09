@@ -47,6 +47,10 @@ def main():
         for obj in asteroid_group:
             if obj.collision(player):
                 sys.exit()
+            for bullet in shots:
+                if bullet.collision(obj):
+                    bullet.kill()
+                    obj.split()
 
         screen.fill("black")
         
